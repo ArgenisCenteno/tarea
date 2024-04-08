@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Fecha</title>
+</head>
+<body>
+    <div class="bigWrapperHeader">
+        <header>
+       <div class="containerHeader">
+         <div class="logo">
+            
+           <h3>Alexis.com</h3>
+         </div>
+
+         <div class="links">
+            <ul>
+                <li class="btn2" > <a  href="index.html">Calculadora</a> </li>
+                <li class="btn2"> <a  href="fecha.html">Edad</a></li>
+                <li class="btn2"> <a  href="calculo.html">Calculo</a></li>
+                <li class="btn2"> <a  href="promedio.html">Promedio</a></li>
+    
+                </ul>
+         </div>
+
+         <div class="overlay"></div>
+
+         <div class="hamburger-menu">
+           <div class="bar"></div>
+         </div>
+       </div>
+     </header>
+   </div>
+
+   <main>
+    
+    <div class="calculadora">
+        <h1 class="pantalla" id="fechaActual">0</h1>
+        <input   type="date" id="fecha" placeholder="Ingrese fecha" class="" />
+        
+    </div>
+   </main>
+   <script>
+    document.getElementById("fecha").addEventListener("change", function() {
+        // Obtener la fecha de nacimiento ingresada por el usuario
+        var fechaNacimiento = new Date(this.value);
+        
+        // Obtener la fecha actual
+        var fechaActual = new Date();
+        
+        // Calcular la diferencia de tiempo entre las fechas
+        var diffTiempo = fechaActual.getTime() - fechaNacimiento.getTime();
+        
+        // Calcular la edad en años
+        var edad = Math.floor(diffTiempo / (1000 * 60 * 60 * 24 * 365.25));
+        
+        // Mostrar la edad en el elemento h3
+        document.getElementById("fechaActual").textContent = "Edad: " + edad + " años";
+    });
+</script>
+
+</body>
+</html>
